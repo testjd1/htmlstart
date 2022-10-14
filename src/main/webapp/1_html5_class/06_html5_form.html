@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_html5_form</title>
+</head>
+<body>
+<form>
+	<fieldset>
+	<legend>로그인 화면 </legend>
+	<ol>
+		<li><label for='id'>아이디</label> <input type='text'  name ='id'></li>
+		<li><label for='password'>비밀번호</label> <input type='password'  name ='password'></li>		
+		<li><label for='pwcheck'>비밀번호 확인</label> <input type='password'  name ='pwcheck'></li>
+		<li><label for='class'>회원 등급</label> <input type='text' placeholder = '준 회원' name ='class'> </li>
+
+	</ol>
+	</fieldset>
+</form>
+
+<form>
+	<fieldset>
+	<legend>개인 정보</legend>
+	<ol>
+		<li><label for='name'>이름</label> <input type='text' placeholder='5자 미만 공백 없이' name='name'></li>
+		<li><label for='mail'>메일 주소</label> <input type='email' placeholder='abcd@domain.com' name='mail'></li>		
+		<li><label for='number'>연락처</label> <input type='tel'  name ='number'></li>
+		<li><label for='bth'>생일</label> <input type="date" placeholder = '연도-월-일' name ='bth'> </li>
+
+	</ol>
+	</fieldset>
+</form>
+
+
+<form>
+	<fieldset>
+	<legend>코딩 숙련도(상,중,하)</legend>
+	<ol>
+	<li><input type='range' min="1" max="3" step="1" value="2"/><br/>
+	</ol>
+	</fieldset>
+	<fieldset>
+	<input type = 'submit' value = '제출'>
+	</fieldset>
+	
+	
+</form>
+
+</body>
+</html>
