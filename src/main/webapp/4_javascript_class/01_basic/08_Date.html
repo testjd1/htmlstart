@@ -5,16 +5,33 @@
 <title>Date 객체</title>
 <script type="text/javascript">	
  	
-	var d = new Date('2023/08/15');
+	var d = new Date('2023/08/13');
 	document.writeln( d  + '<br/>');
-	document.writeln( d.getYear()  + '<br/>');
-	document.writeln( d.getFullYear()  + '<br/>');
+	document.writeln( d.getYear()  + '<br/>');		
+	document.writeln( d.getFullYear()  + '<br/>');// #### 년도 추출 - FullYear
 	document.writeln( d.getMonth()  + '<br/>');
 	document.writeln( d.getDate()  + '<br/>');
-	document.writeln( d.getDay()  + '<br/>');
-
-
+	document.writeln( d.getDay()  + '<hr/>');// SUN : 0
 	
+	var today = new Date()
+	document.writeln(today  + '<br/>');
+	document.writeln(today.toLocaleString() + '<br/>');
+	document.writeln(today.toGMTString()  + '<br/>');
+	document.writeln(today.toDateString()  + '<hr/>');
+	
+	var day = new Date()
+	day.setFullYear(2025)
+	day.setMonth(5-1);					// 중요!  month -1!
+	day.setDate(12)
+	document.writeln(day + '<hr/>')
+	
+	
+	
+	
+	var today = new Date()
+	today.setMonth(today.getMonth()-3 ) // 10 -1 -3 -> 4월 JUN
+	today.setDate(0)			//	 전 달의 마지막 날짜 : 9월 [30일]
+	document.writeln(today.toDateString()  + '<hr/>');
 	
 	
 	

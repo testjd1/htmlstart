@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Map / Set 내장 객체 </title>
+<title>Map / Set 내장 객체</title>
 <script type="text/javascript">
 
 // 1. Map : 키와 값으로 관리하는 객체
@@ -13,6 +13,35 @@ m.set('nodejs', '2222');
 m.set('java','3333');
 
 
+// for ... in   -> 인덱스 추출
+// for ... of   -> 요소 추출
+
+for(var k of m){
+// 	document.write(k + '<br/>')
+	document.write(k[0] + '/' + k[1] + '<br/>')
+}
+
+document.write('<hr/>')
+
+for(var [k,v] of m){
+	document.write(k+ '/' + v+ '<br/>')
+}
+
+document.write('<hr/>')
+
+/*
+for(var k in m){
+	document.write(k + '<br/>')
+}
+*/
+
+/*
+for(var k of a){
+// 	document.write(k + '<br/>')
+	document.write(k[0] + '/' + k[1] + '<br/>')
+}
+=> a라는 값이 없음 : 오류 = 인터프리터 언어라 한줄 씩 해석.
+*/ 
 
 
 
@@ -35,6 +64,32 @@ s.add('dog');
 s.add('lion');
 s.add('dog');
 
+for ( var v of s){
+	document.write(v + '<br/>')
+}
+
+document.write( '<hr/>')
+
+for ( var v in s){
+	document.write(v + '<br/>')
+}
+
+// [ 로또 ]
+let lotto = new Set();
+while(lotto.size<6){
+	var su = parseInt(Math.random()*45) + 1;
+	lotto.add(su)
+}
+
+const nA = Array.from(lotto);
+nA.sort(function(a,b){
+	return a-b
+})
+
+
+for (var num of nA){
+	document.write(num + '/')
+}
 
 </script>
 </head>

@@ -4,7 +4,20 @@
 <meta charset="UTF-8">
 <title></title>
 <script type="text/javascript">
-
+window.onload = function(){
+	document.getElementById('btn').onclick = function(){
+		//alert('d')
+		/*
+		document.myForm.txt0.value='ㅎㅎ'
+		myForm['txt1'].value='ㅎㅎ2'
+		*/
+		for(let i = 0; i<4; i++){
+			myForm['txt'+i].value = 'data-'+i
+	
+		}
+		
+	}
+}
 </script>
 </head>
 <body>
