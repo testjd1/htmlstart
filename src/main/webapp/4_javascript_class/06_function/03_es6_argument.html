@@ -10,10 +10,14 @@
 	{
 		return first * second;
 	}
-	document.writeln('곱은 ' +  multiple( 3, 4 ) + '<br/>'  );
-	document.writeln('곱은 ' +  multiple( 3, 4, 5 ) + '<br/>'  );
-	document.writeln('곱은 ' +  multiple( 3 ) + '<br/>' ); 
+	document.writeln('곱은 ' +  multiple( 3, 4 ) + '<br/>'  );			// 12
+	document.writeln('곱은 ' +  multiple( 3, 4, 5 ) + '<br/>'  );		// 12
+	document.writeln('곱은 ' +  multiple( 3 ) + '<br/>' ); 				// NaN
 	
+	
+	document.writeln('곱은 ' +  multiple( 3, null) + '<br/>'  );			//  0
+	document.writeln('곱은 ' +  multiple( 3, false) + '<br/>'  );		//  0
+	document.writeln('곱은 ' +  multiple( 3, undefined ) + '<br/>' ); 	// NaN
 
 	
 	

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 부분독립페이지 </title>
+<script type="text/javascript">
+
+window.onload = function() {
+   var sel = frm.site;
+   for (var i=0; i<sel.length; i++) {
+      sel[i].onclick = function() {
+         //alert(this.value);
+         //현재 창의 부속인 iframe 안에 요소는
+         //iframe의 name값으로 찾는다!
+         
+         //frm.result.value=this.value;
+         
+         
+      opener.frm.result.value=frm.site.value;
+         
+         
+         }
+      }
+   
+   }
+
+
+</script>
+</head>
+<body>
+
+<form name="frm">
+      결과받기:<input type='text' name='result' size='20'/>  <br>
+      <input type="radio" name="site"  value='가산' onclick='sel()'> 가산 <br>
+      <input type="radio" name="site"  value='판교' onclick='sel()'> 판교 <br>
+      <input type="radio" name="site"  value='부평' onclick='sel()'> 부평 <br>
+      
+</form>
+
+
+
+
+</body>
+</html>

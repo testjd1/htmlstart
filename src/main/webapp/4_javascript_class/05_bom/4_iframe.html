@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <title> 부분독립페이지 </title>
 <script type="text/javascript">
+window.onload =function(){
+	var sel = frm.site;
+	for(let i = 0; i<sel.length; i++){
+		sel[i].onclick = function(){
+			// alert(this.value)
+			// 현재 창의 부속인 iframe안의 요소는 iframe 의 name 값으로 찾는다.
+			
+			
+			ifrm.fm.result.value = this.value;
+		}
+	}
+}
+
+
 
 </script>
 </head>
