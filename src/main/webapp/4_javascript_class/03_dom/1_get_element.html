@@ -34,7 +34,7 @@
     // 4. 현재위치에서 상대적인 관계로 노드 얻어오기
 	var me = document.getElementById('label');
    	var childs = me.childNodes;
-   	//alert(childs.length);
+   	alert(childs.length);
    	for(let i = 0; i<childs.length; i++){
    		if(childs[i].nodeType===1&& childs[i].value ==''){
    			alert(childs[i].name + ' 은 필수 입력');

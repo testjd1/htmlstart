@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+	<!--  jquery 라이브러리 연결 -->
+<!--  절대경로	<script src = '/WebUI/5_jquery_class/lib/jquery-3.6.1.min.js'></script>-->
+<!--  상대경로	<script src = '../lib/jquery-3.6.1.min.js'></script>-->
+<!-- CDN방식 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+/*	
+	$(document).ready(function(){
+		$('div#here').hide();
+		
+		var n = $('div#name');
+		alert(n.text())
+		n.text('홍돌이')
+		alert(n.text())  // getter setter 역할과 비슷
+		
+		
+	})
+*/	
+
+		$(document).ready(function(){
+			$('#here').click(function(){
+				$('#here').text('마우스 클릭함')
+			});
+			
+			$('#here').mouseover(function(){
+				$(this).text('마우스 올라감')
+				$(this).css({'color' : 'red'})
+			});
+
+			$('#here').mouseout(function(){
+				$('#here').text('마우스 치움')
+				$(this).css({'color' : 'blue'})
+			});
+
+			
+			$('#here').hover(function(){
+				$(this).css({'border':'2px solid green'})
+			},function(){
+				$(this).css({'border':'2px dotted yellow'})
+			});
+			
+			/*
+			효과함수  hide() / show()
+			$('#here').fadeOut(1000)		// 서서히 안보이게
+			$('#here').fadeIn(1000)			// 서서히 보이게
+			*/
+			/*
+			//$('#here').fadeOut(2000).fadeIn(2000)		// 체이닝
+			$('#here').slideUp(2000)		// 서서히 올라감
+			$('#here').slideDown(2000)		// 서서히 내려감
+			*/
+			//요소 찾기
+			var s = $('#student')
+			var n = s.find('#name')
+			n.text('흉가')		// 글씨만			
+			n.html('<span>흉가2</span>')		// 태그도 인식	-> 흉가2
+			n.text('<span>흉가3</span>')	 	// 			-> <span>흉가3</span>
+		})
+	</script>
+	
+	
+	
+</head>
+<body>
+	
+
+	<div id="here">
+	아자아자 제이쿼리~~!!! 
+	</div>
+	
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+	
+</body>
+</html>

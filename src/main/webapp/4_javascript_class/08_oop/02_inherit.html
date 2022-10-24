@@ -18,7 +18,37 @@
 		};
 
 		// 자식클래스
+		var Dog = function(){}
+		Dog.prototype = new Animal(); // 상속관계
+		
+		var dog = new Dog();
+		dog.sound();
+		dog.move();
+		
+		Dog.prototype.sound = function(){
+			document.writeln(' 멍멍멍 <br/>');
+		}
+		
+		dog.sound();
 
+		
+	/*
+		Human 클래스 -> Animal 상속받음
+		휴면 객체 생성해서  ingan에 저장
+		Animal의 move 오버라이딩
+		인간 걷는다 출력
+	*/
+		var Human = function(){}
+		Human.prototype = new Animal();
+		
+		var ingan = new Human();
+		
+		Human.prototype.move = function(){
+			document.write('인간은 두 발로 걷는다 <br/>');
+		}
+		ingan.move()
+		
+	
 
 
 	</script>
