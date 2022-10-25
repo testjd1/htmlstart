@@ -8,7 +8,44 @@
 	.bg { background : yellow; }
 	.border { border : 3px dotted red; }
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('li').css({'cursor':'pointer'});	// 손바닥 표시
+	
+	$('li').bind('click',function(){	// 오리지널
+		// var liTxt = $(this).text()   // jQuery
+		var liTxt = this.innerHTML;		// js
+	$('#result').text(liTxt)
+	
+	});
+	/*
+	$('li').click(function(){			// 축약형
+	$('#result').text($(this).text())	
+	});
+	*/
+	
+	// $('ul') -> 기존의 ul 객체 찾음
+	// $('<ul>') -> 새로운 객체 생성
+	
+	
+	
+	$('h1').bind('click',function(){
+		var n = $('<li/>').text(new Date())
+		$('ul').append(n);
+		
+		
+	})
+	
+	// 동적으로 생긴 요소에는 이벤트 안생김
+	$('ul').on('click','li',function(){
+		$('#result').text($(this).text())
+	})
+	
+	
+	
+})
+</script>
 </head>
 <body>
 	<h1>제이쿼리 이벤트</h1>
