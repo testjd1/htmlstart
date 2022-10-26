@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+<meta charset="UTF-8">
+<title>주문 확인</title>
+<style type="text/css">
+@font-face {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: strong;
+    font-style: strong;
+}
+
+body {
+   font-family: 'LeferiPoint-WhiteObliqueA';
+   color: #000000;   
+   font-size: 17px;
+   font-weight: strong;
+    font-style: strong;
+}
+</style>
+<script src="../../lib/jquery-3.6.1.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+      //메인에서 합계금액 따온 변수
+      var n= $("#total", opener.document).val();
+      // 메뉴 받음
+      var mn = [];
+       // 주문 받음
+      var cnt = [];
+       // 가격 받음
+      var pr = [];
+       
+      var totcnt =Number(0);
+      
+      
+      $('#total1').val(n);
+      //이미지 누를 시 결제 진행된 다는 알림 후 창 닫기
+      $('#btnpic').click(function(){
+         alert('총 '+$('#total1').val()+'원 카드결제 진행. 카드를 꽂아주세요.');
+      //창 새로고침
+            opener.location.reload();
+       //부모창 새로고침       
+         window.self.close();
+      });
+      $('#btnpic1').click(function(){
+         alert('총 '+$('#total1').val()+'원 현금결제 진행. 현금을 넣어주세요.');
+         //창 새로고침
+            opener.location.reload();      
+         //부모창 새로고침
+         window.self.close();
+      });
+
+      //이름이 달린 제목칸에 커서를 올리면 손가락 모양이 나오게
+      $('#btnpic').css({'cursor':'pointer'});
+      $('#btnpic1').css({'cursor':'pointer'});
+
+   
+   // 부모테이블에서 이름 객체 몇개인지 체크
+   var totsum ;
+   var totcnt = Number(0) ;
+   var n1 =$('.name', opener.document);
+   var n2 =$('.count', opener.document);
+   var n3 =$('.price1', opener.document);
+   cnt = n1.length;
+   
+   // 개수가 1개일 때,
+     if(cnt==1){
+       var td1 = $('<td class= "name"/>').text($('.name', opener.document).text());
+       // var n1 =$('.name', opener.document).text();
+       var td2 = $('<td  class = "count" />').text($('.count', opener.document).text());
+       
+       // var n2 =$('.count', opener.document).text();
+       var td3 = $('<td  class = "price1" />').text($('.price1', opener.document).text()) ;
+       
+       // var n3 =$('.price1', opener.document).text();
+        
+        
+        var tr = $('<tr/>');
+        tr.append(td1);
+        tr.append(td2);
+        tr.append(td3);
+     $('#listTable').append(tr);
+     totcnt +=Number($('.count', opener.document).text()) 
+     
+     
+     } // 개수가 여러개일 때,
+     else if(cnt>=1){
+        
+        for(let i = 0; i<cnt; i++){
+           
+
+        //alert(n1.eq(i).text());
+      
+        mn[i] =  n1.eq(i).text() ;
+        // alert(ch[i]);
+        
+       
+        cnt[i] = n2.eq(i).text() ;
+         
+     
+        pr[i] = n3.eq(i).text() ;
+        
+        var td1 = $('<td class= "name"/>').text(mn[i]);
+        var td2 = $('<td class= "count"/>').text(n2.eq(i).text());
+        var td3 = $('<td class= "price1"/>').text(pr[i]);
+            
+        var tr = $('<tr id="trid"/>');
+             tr.append(td1);
+             tr.append(td2);
+             tr.append(td3);
+          $('#listTable').append(tr);
+          
+         // 총 개수 누적
+          totcnt += Number(n2.eq(i).text())
+
+        
+         // 총 결과 잘뜨나 확인
+         // alert(totcnt)
+         // alert($('#total1').val())
+          
+          
+        }// for 종료 
+        
+       
+        } // else if 종료
+     var tr2 = $('<tr/>');
+     var td1 = $('<td class= "name"/>').text("총합 : ");
+     var td2 = $('<td class= "count"/>').text(totcnt);
+     var td3 = $('<td class= "price1"/>').text($('#total1').val());
+         
+     var tr2 = $('<tr id="trid"/>');
+          tr2.append(td1);
+          tr2.append(td2);
+          tr2.append(td3);
+       $('#listTable').append(tr2); 
+
+     } // onload 종료
+</script>
+</head>
+<body>
+<div id="rightdiv">
+<table id="listTable" name='listTable' style=" text-align: center;">
+   <tr id="listtitle">
+      <th colspan=4 id="titleText">𝑂𝑟𝑑𝑒𝑟 𝐿𝑖𝑠𝑡</th>
+   </tr>
+   <tr id="totallist">
+      <td colspan='4'>
+         𝑇𝑂𝑇𝐴𝐿 : <input type='text' name='total1'  id='total1'/> 원 
+      </td>
+   </tr>
+   <tr id="listtr">
+      <td width="200">목록</td>
+      <td width="150">갯수</td>
+      <td width="150">가격</td>
+    </tr>
+   
+</table>
+</div>
+<div style=" text-align: center;">
+<table>
+<tr>
+<img src="../../1_menuPan과제/images/카드결제.PNG" value='button'  id='btnpic'/>
+
+<img src="../../1_menuPan과제/images/현금결제.PNG" value='button'  id='btnpic1'/>
+    </tr> 
+</table>
+</div>
+
+</body>
+</html>
